@@ -1,0 +1,510 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+*,
+*:before,
+*:after
+	-moz-box-sizing: border-box
+	-webkit-box-sizing: border-box
+	box-sizing: border-box
+	
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: $white
+
+body
+	font-size: 18px
+	min-width: 320px
+	position: relative
+	line-height: 1.2
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	font-weight: normal
+	padding: 0
+	margin: 0
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+img
+	height: auto
+	width: 100%
+
+b, strong
+	font-weight: bold
+
+a
+	text-decoration: none
+	cursor: pointer
+	display: block
+	&:hover
+		text-decoration: none
+
+p, ul, li
+	padding: 0
+	margin: 0
+
+li
+	list-style-type: none
+
+h1, h2, h3, h4, h5, h6
+	padding: 0
+	margin: 0
+	font-weight: normal
+
+.container
+	max-width: 1200px
+	margin: 0 auto
+	padding: 0 15px
+	width: 100%
+
+.header
+	&__top
+		min-height: 100px
+		padding: 32px 0
+		background: rgba(16, 16, 29, 0.9)
+		display: flex
+		align-items: center
+		position: fixed
+		width: 100%
+		top: 0
+		z-index: 10
+	&__row
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&__info
+		padding: 203px 0
+		background-image: url(../img/main-bg.jpg)
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: center
+	&__title
+		font-weight: 700
+		font-size: 48px
+		text-transform: uppercase
+		color: $text
+		max-width: 70%
+	&__descr
+		margin-top: 80px
+		&-title
+			font-weight: 700
+			font-size: 20px
+			color: $text
+		&-list
+			margin-top: 10px
+		&-item
+			font-weight: 400
+			font-size: 20px
+			color: $text
+			position: relative
+			padding-left: 25px
+			&::before
+				position: absolute
+				content: '-'
+				top: 50%
+				left: 10px
+				transform: translateY(-50%)
+			&:not(:last-child)
+				margin-bottom: 5px
+	&__buttons
+		margin-top: 80px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		max-width: 396px
+
+.logo
+	&__img
+		max-width: 247px
+
+.menu
+	&__list
+		display: flex
+	&__item
+		&:not(:last-child)
+			margin-right: 60px
+		&_active
+			.menu__link
+				color: #43ABF0
+	&__link
+		font-weight: 600
+		font-size: 13px
+		text-transform: uppercase
+		color: $white
+		transition: all .5s ease
+		&:hover
+			color: #43ABF0
+	&-icon
+		display: none
+	&__body
+		position: relative
+
+
+.color-accent
+	color: $accent
+
+.btns .btn
+	max-width: 183px
+
+.btn
+	background: transparent
+	cursor: pointer
+	padding: 0
+	margin: 0
+	outline: none
+	text-transform: uppercase
+	border-radius: 4px
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	min-height: 43px
+	font-family: $default-font
+	font-weight: 400
+	font-size: 13px
+	padding: 5px 10px
+	text-align: center
+	transition: all .5s ease
+	&_color
+		background: $accent
+		border: 1px solid $white
+		color: $white
+		&:hover
+			background: $white
+			color: $accent
+			border: 1px solid $accent
+	&_white
+		background: $white
+		border: 1px solid #6F6D7B
+		color: #2A2B30
+		&:hover
+			background: #2A2B30
+			border: 1px solid #6F6D7B
+			color: $white
+
+.order
+	background-image: url(../img/bg.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+	padding: 120px 0 150px
+	overflow: hidden
+	&__title
+		font-weight: 800
+		font-size: 36px
+		color: $white
+		text-transform: uppercase
+		text-align: center
+		padding: 0 10px
+	&__subtitle
+		margin-top: 30px
+		font-weight: 400
+		font-size: 18px
+		color: #BBBBBB
+		text-align: center
+		padding: 0 10px
+	&__steps
+		display: flex
+		align-items: flex-start
+		justify-content: center
+		flex-wrap: wrap
+		margin-top: 80px
+	&__step
+		display: flex
+		flex-direction: column
+		align-items: center
+		position: relative
+		flex: 0 0 20%
+		max-width: 20%
+		padding: 0 10px
+		opacity: 0
+		transition: all .5s
+		transform: translateY(-25px)
+		margin-bottom: 40px
+		&.on
+			opacity: 1
+			transform: translateY(0px)
+		&:not(:last-child)::after
+			position: absolute
+			content: ''
+			background-image: url(../img/order/points.svg)
+			background-position: center
+			background-size: cover
+			width: 115px
+			height: 6px
+			top: 50px
+			transform: translateX(50%)
+			right: 0
+		&:nth-child(5n)::after
+			display: none
+	&__img
+		width: 100px
+		height: auto
+		z-index: 1
+	&__text
+		margin-top: 20px
+		font-weight: 400
+		font-size: 16px
+		text-align: center
+		color: $white
+		max-width: 210px
+	&__form
+		margin-top: 40px
+
+
+input, select,
+.selectize-control .selectize-input
+	min-height: 48px
+	padding: 10px
+	font-family: $default-font
+	font-weight: 400
+	font-size: 18px
+	color: #272733
+	border: none
+	background: rgba(255, 255, 255, 0.85)
+	border: 1px solid #FFFFFF
+	border-radius: 3px
+	width: 100%
+	outline: none
+	display: flex
+	align-items: center
+	transition: all .5s ease
+	&::placeholder
+		color: #272733
+input[type="range"]
+	padding: 0
+.selectize-input input
+	padding: 10px
+	font-weight: 400
+	font-size: 18px
+	color: #272733
+	width: 100%
+.selectize-control.single .selectize-input.input-active
+	background: rgba(61, 64, 80, 0.85)
+	border: none
+	display: flex
+	color: $white
+	input::placeholder
+		color: $white
+.selectize-dropdown
+	background: rgb(39, 39, 51)
+	border: 1px solid #3D4050
+	border-radius: 3px
+	font-size: 18px
+	font-weight: 400
+	font-family: $default-font
+.selectize-dropdown
+	color: $white
+.selectize-dropdown-content
+	&::-webkit-scrollbar
+		width: 12px
+	&::-webkit-scrollbar-track
+		box-shadow: inset 0 0 10px 10px #3D4050
+		border: solid 3px transparent
+		border-radius: 6px
+	&::-webkit-scrollbar-thumb
+		box-shadow: inset 0 0 10px 10px #3E9CDC
+		border-radius: 6px
+		border: solid 3px transparent
+.selectize-dropdown .active
+	background: inherit
+	color: $accent
+.selectize-dropdown [data-selectable]
+	padding: 15px 10px
+
+
+.form
+	&__row
+		display: flex
+		flex-wrap: wrap
+		gap: 30px 2.6%
+	&__box
+		flex: 0 0 31.6%
+		max-width: 31.6%
+	&__button
+		margin: 40px auto 0
+		padding: 0
+		max-width: 370px
+		.btn
+			font-weight: 600
+
+.range
+	flex: 0 0 65.8%
+	&__top
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+		&-text
+			font-weight: 400
+			font-size: 18px
+			color: $white
+			margin-right: 15px
+		&-percent
+			font-weight: 600
+			font-size: 18px
+			color: rgba(255, 255, 255, 0.85)
+			display: flex
+	&__content
+		margin-top: 20px
+
+
+.rangeslider
+	cursor: pointer
+	border: 1px solid #fff
+	background: rgba(255, 255, 255, 0.7)
+	box-shadow: none
+.rangeslider__fill
+	background: none
+	border-radius: 3px
+	box-shadow: none
+.rangeslider--horizontal
+	height: 6px
+	width: 100%
+.rangeslider__handle
+	border-radius: 50%
+	background: #42A9ED
+	border: 3px solid #286690
+	box-shadow: none
+	width: 24px
+	height: 24px
+	right: -12px
+	top: -10px
+
+.dropzone
+	position: relative
+	&__body
+		min-height: 48px
+		padding: 8px 10px
+		border: none
+		background: $white
+		border: 2px solid $accent
+		border-radius: 3px
+		display: flex
+		align-items: center
+		transition: all .5s ease
+	&__wrap
+		width: 100%
+	&__input
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		margin: 0
+		padding: 0
+		width: 100%
+		height: 100%
+		outline: 0
+		opacity: 0
+		input[type="file"]
+			cursor: pointer
+			width: 100%
+			height: 100%
+	&__message
+		display: flex
+		align-items: center
+		justify-content: center
+		&-image
+			width: 17px
+			margin-right: 10px
+		&-title
+			font-weight: 600
+			font-size: 15px
+			color: #272733
+			text-transform: uppercase
+	&__upload
+		display: none
+		width: 100%
+		&-wrap
+			display: flex
+			align-items: center
+			justify-content: space-between
+		&-title
+			font-weight: 600
+			font-size: 15px
+			color: #272733
+			text-transform: uppercase
+			max-width: 70%
+			overflow: hidden
+			text-overflow: ellipsis
+		&-remove
+			cursor: pointer
+			color: #fff
+			background: $accent
+			border: none
+			padding: 6px 12px
+			border-radius: 3px
+			transition: all .2s ease
+			outline: 0
+			font-weight: 600
+			font-size: 13px
+#file-upload-button
+	cursor: pointer
+
+
+.footer
+	background: #3D4050
+	&__row
+		display: flex
+		align-items: center
+		justify-content: space-between
+		min-height: 80px
+	&__copyright
+		font-weight: 400
+		font-size: 13px
+		color: $white
+		flex: 1 0 0
+		max-width: 25%
+
+.payments
+	border-right: 1px solid #C3C3C3
+	border-left: 1px solid #C3C3C3
+	padding: 0 3%
+	margin: 0 10px
+	display: flex
+	align-items: center
+	justify-content: flex-start
+	flex-wrap: wrap
+	&__item
+		display: flex
+		align-items: center
+		&:not(:last-child)
+			margin-right: 38px
+	&__icon
+		max-width: 20px
+		margin-right: 10px
+	&__title
+		font-weight: 400
+		font-size: 13px
+		color: #C3C3C3
+
+.contacts
+	display: flex
+	align-items: center
+	justify-content: flex-end
+	&__item
+		display: flex
+		align-items: center
+		&:not(:last-child)
+			margin-right: 38px
+	&__icon
+		max-width: 20px
+		margin-right: 10px
+	&__title
+		font-weight: 400
+		font-size: 13px
+		color: $white
+
+
+
+@import "media" // Always at the end
